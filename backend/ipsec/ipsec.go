@@ -64,14 +64,14 @@ func (o *Overlay) Start(launch bool, logFile string) {
 		logrus.Fatalf("Failed to load connections from charon: %v", err)
 	}
 
-	go func() {
-		for {
-			time.Sleep(5 * time.Second)
-			if err := o.cleanup(); err != nil {
-				logrus.Errorf("Failed to clean up SAs due to: %v", err)
-			}
-		}
-	}()
+	//go func() { // TODO fix cleanup on ARM
+	//	for {
+	//		time.Sleep(5 * time.Second)
+	//		if err := o.cleanup(); err != nil {
+	//			logrus.Errorf("Failed to clean up SAs due to: %v", err)
+	//		}
+	//	}
+	//}()
 }
 
 func Test() error {
